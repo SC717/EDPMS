@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Department</title>
+     <style type="text/css"> 
+        div
+        {
+            text-align: center;
+            background: linear-gradient(#03A9F4,#E91E63);
+            margin-top: 20px;   
+
+        }
+        div form
+        {
+            
+            display: block;
+            
+
+        }
+        button
+        {
+            border-radius: 10px;
+            padding: 5px;
+            font-weight: 900;
+
+            box-sizing: border-box;
+        }
+        h1
+        {   margin-bottom: 20px;
+            padding: 7px;
+            font-family: sans-serif;
+        }
+        
+    </style>
+    <div>
+    <h1>Add Department</h1>
+</head>
+<body>
+    <div class="Details">    
+        <form id="Details" method="post" action="./ah.php">
+            <label><b>Employee id
+            </b>    
+            </label>    
+            <input type="number" name="eno" id="e" placeholder="employee id"> 
+            <br><br>
+            <label><b>Employee monthly salary  
+            </b>    
+            </label>    
+            <input type="number" name="sal" id="e" placeholder="Salary"> 
+          
+           <br><br>
+            <label><b>Employee Net salary  
+            </b>    
+            </label>    
+            <input type="number" name="salnet" id="e" placeholder="Net Salary"> 
+          
+           <br><br>
+            <label><b>Employee Reinbursment date 
+            </b>    
+            </label>    
+            <input type="date" name="rdate" id="e" placeholder="date"> 
+          
+           <br><br>
+          
+            <input type="submit" name="submit"  value="Add Payroll">       
+        <br><br>
+        <br><br>
+        <br><br>  
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+    </form>
+</div> 
+
+</body>
+</html>
+    
+    <?php
+    $host='localhost';
+    $user='root';
+    $pass='';
+    $db='demo';
+
+    
+    $conn=mysqli_connect($host,$user,$pass,$db);
+    if(isset($_POST['submit']))
+    {
+        if(!empty($_POST['eno'])|| !empty($_POST['sal']) || !empty($_POST['salnet'])|| !empty($_POST['rdate']) )
+        {
+            $eno=$_POST['eno'];
+            $sal=$_POST['sal'];
+            $salnet=$_POST['salnet'];
+            $rdate=$_POST['rdate'];
+           
+    
+    
+    
+            $query="insert into payroll (eno, emp_sal_month, emp_net_sal, reinbursment_date) values($eno,$sal, $salnet, $rdate);";
+
+            $run=mysqli_query($conn,$query);
+            if($run) {
+
+                echo"form submitted succesfuuly";
+            }
+            else
+            {
+                echo"form not submitted";
+            }
+                    
+            
+        }
+        else{
+            echo"all fields  are required";
+        }
+
+
+    }
+    
+   
+    ?>
+    

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Department</title>
+      <style type="text/css"> 
+        div
+        {
+            text-align: center;
+            background: linear-gradient(#03A9F4,#E91E63);
+            background-repeat: no-repeat;
+            margin-top: 20px;   
+
+        }
+        div form
+        {
+            
+            display: block;
+            
+
+        }
+        button
+        {
+            border-radius: 10px;
+            padding: 5px;
+            font-weight: 900;
+
+            box-sizing: border-box;
+        }
+        h1
+        {   margin-bottom: 20px;
+            padding: 7px;
+            font-family: sans-serif;
+        }
+        
+    </style>
+    <div>
+    <h1>Add Department</h1>
+</head>
+<body>
+    <div class="Details">    
+        <form id="Details" method="post" action="./af.php">    
+            <label><b>Department id
+            </b>    
+            </label>    
+            <input type="number" name="did" id="e" placeholder="Department id"> 
+            <br><br>
+            <label><b>Department Name  
+            </b>    
+            </label>    
+            <input type="text" name="dname" id="e" placeholder="department name"> 
+          
+           <br><br>
+          
+            <input type="submit" name="submit"  value="Add Department">       
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+
+    </form>
+</div> 
+
+</body>
+</html>
+    
+    <?php
+    $host='localhost';
+    $user='root';
+    $pass='';
+    $db='demo';
+
+    
+    $conn=mysqli_connect($host,$user,$pass,$db);
+    if(isset($_POST['submit']))
+    {
+        if(!empty($_POST['dname'])|| !empty($_POST['did']) )
+        {
+            $did=$_POST['did'];
+            $dname=$_POST['dname'];
+           
+    
+    
+    
+            $query="insert into department values($did,'$dname');";
+
+            $run=mysqli_query($conn,$query);
+            if($run) {
+
+                echo"form submitted succesfuuly";
+            }
+            else
+            {
+                echo"form not submitted";
+            }
+                    
+            
+        }
+        else{
+            echo"all fields  are required";
+        }
+
+
+    }
+    
+   
+    ?>

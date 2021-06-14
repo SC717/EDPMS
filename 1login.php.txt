@@ -1,0 +1,114 @@
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Login Form</title>    
+    <style type="text/css"> 
+        div
+        {
+            text-align: center;
+            background: linear-gradient(#03A9F4,#E91E63);
+               
+
+        }
+        div form
+        {
+            
+            display: block;
+            
+
+        }
+        button
+        {
+            border-radius: 10px;
+            padding: 5px;
+            font-weight: 900;
+
+            box-sizing: border-box;
+        }
+        h1
+        {   margin-bottom: 20px;
+            padding: 7px;
+            font-family: sans-serif;
+        }
+        
+    </style>
+    <link rel="stylesheet" type="text/css" href="adminlogin.css">    
+    <div>
+    <h2>Login Page</h2>
+</head>    
+<body>    
+    <div class="login">    
+    <form method="post" action="login.php">    
+        <label><b>User Name     
+        </b>    
+        </label>    
+        <input type="text" name="username"  placeholder=" Enter Username">    
+        <br><br>    
+        <label><b>Password     
+        </b>    
+        </label>    
+        <input type="Password" name="password"  placeholder=" Enter Password">    
+        <br><br> 
+        <input type='submit' name='sub' value='submit'>
+           
+        <br><br> 
+        <br><br>    
+        <br><br> 
+        <br><br> 
+        <br><br> 
+        <br><br> 
+        <br><br> 
+         <br><br> 
+        <br><br>    
+        <br><br> 
+        <br><br> 
+        <br><br> 
+        <br><br>    
+        <br><br> 
+        <br><br> 
+       
+         
+    </form> 
+   
+<?php
+$host="localhost";
+$user="root";
+$password="";
+$db="demo";
+
+$con=new mysqli($host,$user,$password,$db); 
+
+if(isset($_POST['sub']))
+{
+    $uname='';
+$password='';
+    if(isset($_POST['username']))
+        $uname=$_POST['username'];
+    if(isset($_POST['password']))
+        $password=$_POST['password'];
+    $sql="select * from loginform where user='".$uname."' AND pass='".$password."'
+    limit 1";
+    $result=mysqli_query($con,$sql);
+    if($uname!='')
+    {
+        if(mysqli_num_rows($result)==1)
+    {
+       
+       header("Location:http://localhost/shashau/aa.php");
+
+    }
+    else
+    {
+        echo"you have Entered incorrect password";
+       
+
+    }
+
+    }
+    
+    
+}
+?>   
+</div>    
+</body>    
+</html>   

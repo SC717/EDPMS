@@ -1,0 +1,25 @@
+<?php
+    $host='localhost';
+    $user='root';
+    $pass='';
+    $db='demo';
+
+    
+    $conn=mysqli_connect($host,$user,$pass,$db);
+    
+    $sql = "SELECT e.ename, Dname, e.net_salary from department, (SELECT * FROM employee, payband where employee.eid=payband.eno) as e where e.dnum=department.Did;";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              // output data of each row
+              while($row = $result->fetch_assoc()) {
+                echo "Emaployee Name: " . $row["ename"]. " - Depatment Name: " . $row["Dname"]. "Net Salary: " . $row["net_salary"]. "<br>";
+              }
+            } else {
+              echo "0 results";
+            }
+    ?>
+
+
+
+

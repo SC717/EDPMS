@@ -1,0 +1,21 @@
+<?php
+    $host='localhost';
+    $user='root';
+    $pass='';
+    $db='demo';
+
+    
+    $conn=mysqli_connect($host,$user,$pass,$db);
+    
+    $sql = "SELECT  dname, did  FROM department";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              // output data of each row
+              while($row = $result->fetch_assoc()) {
+                echo "id: " . $row["did"]. " - Name: " . $row["dname"]. " <br>";
+              }
+            } else {
+              echo "0 results";
+            }
+?>

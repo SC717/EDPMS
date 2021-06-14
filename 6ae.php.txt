@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee details</title>
+     <style type="text/css"> 
+        div
+        {
+            text-align: center;
+            background: linear-gradient(#03A9F4,#E91E63);
+              
+
+        }
+        div form
+        {
+            
+            display: block;
+            
+
+        }
+        button
+        {
+            border-radius: 10px;
+            padding: 5px;
+            font-weight: 900;
+
+            box-sizing: border-box;
+        }
+        h1
+        {   margin-bottom: 20px;
+            padding: 7px;
+            font-family: sans-serif;
+        }
+        
+    </style> 
+    <div>
+    <h1>Employee Update</h1>
+</head>
+<body>
+    <div class="Details">    
+        <form id="Details" method="post" action="./ae.php">    
+            
+            
+            
+            
+            <label><b>Employee id 
+            </b>    
+            </label>    
+            <input type="number" name="ei" id="e" placeholder="Employee id"> 
+            <br><br>
+            <label><b>Employee Name  
+            </b>    
+            </label>    
+            <input type="text" name="name" id="e" placeholder="Employee name"> 
+          
+           <br><br>
+
+
+ 
+            <label><b>Date of birth   
+            </b>    
+            </label>  
+            <input type="date" name="birth" id="date" placeholder="Employee birth date">    
+            <br><br>  
+            
+            
+            <label><b>Address
+            </b>    
+            </label>  
+            <input type="text" name="add" id="address" placeholder="address">    
+            <br><br>  
+            
+            
+            <label><b>Date of joining
+            </b>    
+            <input type="date" name="date" id="join" placeholder="joining date"> 
+            <br><br>
+                
+                
+            <label><b>state
+            </b>    
+            </label>  
+            <select name=var>
+                <option>karnataka</option>
+                <option>tamilnadu</option>
+                <option> kerala</option>
+                <option>andra pradesh</option>
+                <option>other state</option>
+                
+               </select>
+            <br><br>  
+                
+                
+            <label><b>Mobile no
+            </b>    
+            </label>  
+            <input type="number" name="mobile" id="num" placeholder="enter mobile number">    
+            <br><br> 
+                
+                
+            <label><b>Pancard no
+            </b>    
+            </label>  
+            <input type="number" name="pan" id="card" placeholder="Employee pan No">    
+            <br><br>  
+                
+                
+                
+            <label><b>Email Id
+            </b>    
+            </label>  
+            <input type="text" name="id" id="Email" placeholder="email id">    
+            <br><br>  
+                
+                
+                
+            <input type="submit" name="submit"  value="Submit">       
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br> 
+        <br><br>
+        <br><br>
+        <br><br>
+
+    </form>
+</div> 
+    </body>
+    
+    </html>
+<!--<script>
+    
+//let form  = document.querySelector('form');
+//    console.log(form)
+//    let button = document.querySelector('input[type=submit]')
+//    form.addEventListener('submit', (e) => {
+//        e.preventDefault();
+//        console.log("submitted");
+//    })
+    
+    
+    </script> 
+
+
+
+    
+    <?php
+    $host='localhost';
+    $user='root';
+    $pass='';
+    $db='demo';
+
+    
+    $conn=mysqli_connect($host,$user,$pass,$db);
+    if(isset($_POST['submit']))
+    {
+        if(!empty($_POST['ei'])|| !empty($_POST['name'])|| !empty($_POST['birth'])||!empty($_POST['add'])||!empty($_POST['date'])||!empty($_POST['var'])||!empty($_POST['mobile'])||!empty($_POST['pan'])||!empty($_POST['id'] ) )
+        {
+            $eid=$_POST['ei'];
+            $ename=$_POST['name'];
+            $dateofbirth=$_POST['birth'];
+            $address=$_POST['add'];
+            $dateofjoin=$_POST['date'];
+            $state=$_POST['var'];
+            $mobileno=$_POST['mobile'];
+            $panno=$_POST['pan'];
+            $email =$_POST['id'];
+    
+    
+    
+             $query="UPDATE employee SET ename='".$ename."' WHERE eid=".$eid.";";
+            
+
+                    $run=mysqli_query($conn,$query);
+            if ($conn->query($query) === TRUE) {
+              echo "Record updated successfully";
+            } else {
+              echo "Error updating record: " . $conn->error;
+            }
+                    
+            
+        }
+        else{
+            echo"all fields  are required";
+        }
+    }
+    
+   
+    ?>   

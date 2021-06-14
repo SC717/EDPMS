@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style type="text/css"> 
+        div
+        {
+            text-align: center;
+            background: linear-gradient(#03A9F4,#E91E63);
+            margin-top: 20px;   
+
+        }
+        div form
+        {
+            
+            display: block;
+            
+
+        }
+        button
+        {
+            border-radius: 10px;
+            padding: 5px;
+            font-weight: 900;
+
+            box-sizing: border-box;
+        }
+        h1
+        {   margin-bottom: 20px;
+            padding: 7px;
+            font-family: sans-serif;
+        }
+        
+    </style>
+    <link rel="stylesheet" type="text/css" href="adminfill.css">    
+    <div>
+    <h1>Welcome Admin</h1>
+</head>
+<body>
+    
+    <div class="admin">    
+        <form action="ab.php" method ="post" id="p1">
+            <button>ADD NEW EMPLOYEE</button>
+                        </form>
+                  <br><br>                                         
+                  <form action="ad.php" method ="post">
+            <button>VIEW LIST OF EMPLOYEES ADDED</button>
+            </form>
+                  <br><br>   
+                                                          
+           <form action="ac.php" method ="post">
+            <button>DELETE EMPLOYEE</button>
+            
+            </form>                                               <br><br>
+                                       
+                <form action="ae.php" method ="post">
+                    <button>EMPLOYEE UPDATE</button>
+            
+            </form>                                                                                         
+                                                          
+                  <br><br>
+                                       
+            <form action="./af.php" method ="post">
+                <button>ADD DEPARTMENT</button>
+                
+            </form>   
+            <br><br>                                                                                                           
+                                                              
+            <form action="./ag.php" method ="post">
+                <button>DEPARTMENT DETAILS</button>
+                
+            </form><br><br>
+
+            <form action="./aj.php" method ="post">
+                <button>EMPLOYEE GRADE DETAILS</button>
+                    
+            </form><br><br>
+
+            <form action="./ak.php" method ="post">
+                <button>UPDATE EMPLOYEE GRADE</button>
+                    
+            </form><br><br>
+        
+            <form action="./ah.php" method ="post">
+                <button>EMPLOYEE PAYROLL</button>
+                    
+            </form><br><br>
+
+            <form action="./ai.php" method ="post">
+                <button>UUPDATE EMPLOYEE PAYROLL</button>
+                    
+            </form><br><br>
+            <form action="./al.php" method ="post">
+                <button>EMPLOYEE REPORT</button>
+                    
+            </form><br><br>
+        
+            
+
+                                              
+    </div>
+</body>
+</html>

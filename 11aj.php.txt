@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Pay Band</title>
+     <style type="text/css"> 
+        div
+        {
+            text-align: center;
+            background: linear-gradient(#03A9F4,#E91E63);
+            margin-top: 20px;   
+
+        }
+        div form
+        {
+            
+            display: block;
+            
+
+        }
+        button
+        {
+            border-radius: 10px;
+            padding: 5px;
+            font-weight: 900;
+
+            box-sizing: border-box;
+        }
+        h1
+        {   margin-bottom: 20px;
+            padding: 7px;
+            font-family: sans-serif;
+        }
+        
+    </style>
+    <div>
+    <h1>Add Pay Grade</h1> 
+</head>
+<body>
+    <div class="Details">    
+        <form id="Details" method="post" action="./aj.php">
+            <label><b>Employee id
+            </b>    
+            </label>    
+            <input type="number" name="eno" id="e" placeholder="employee id"> 
+            <br><br>
+            <label><b> Grade name 
+            </b>    
+            </label>    
+            <input type="text" name="grade_name" id="e" placeholder="Grade name"> 
+          
+           <br><br>
+            <label><b>Employee Grade basic 
+            </b>    
+            </label>    
+            <input type="text" name="grade_basic" id="e" placeholder="Grade Basics" require> 
+          
+           <br><br>
+            <label><b> Alllowance
+            </b>    
+            </label>    
+            <input type="number" name="allowance" id="e" placeholder="Allowance" require> 
+          
+           <br><br>
+            <label><b> PF
+            </b>    
+            </label>    
+            <input type="number" name="pf" id="e" placeholder="PF"> 
+          
+           <br><br>
+            <label><b> Bonus
+            </b>    
+            </label>    
+            <input type="number" name="bonus" id="e" placeholder="Bonus"> 
+          
+           <br><br>
+            <label><b> Tax
+            </b>    
+            </label>    
+            <input type="number" name="tax" id="e" placeholder="Tax"> 
+          
+           <br><br>
+            <label><b> Total Salary
+            </b>    
+            </label>    
+            <input type="number" name="sal" id="e" placeholder="Total Salary"> 
+          
+           <br><br>
+          
+            <input type="submit" name="submit"  value="Add Payroll">       
+        <br><br>
+        <br><br> <br><br>
+        <br><br> <br><br>    
+        <br><br> <br><br> 
+        <br><br> 
+          
+        
+         
+    </form>
+</div> 
+
+</body>
+</html>
+    
+    <?php
+    $host='localhost';
+    $user='root';
+    $pass='';
+    $db='demo';
+
+    
+    $conn=mysqli_connect($host,$user,$pass,$db);
+    if(isset($_POST['submit']))
+    {
+        if(!empty($_POST['eno']) )
+        {
+            $eno=$_POST['eno'];
+            $name=$_POST['grade_name'];
+            $basic=$_POST['grade_basic'];
+            $allo=$_POST['allowance'];
+            $pf=$_POST['pf'];
+            $bonus=$_POST['bonus'];
+            $tax=$_POST['tax'];
+            $sal=$_POST['sal'];
+           
+    
+    
+    
+            $query="insert into payband (eno, grade_name, grade_basic, allowence, pf, bonus, tax, total_salary, net_salary) values($eno,'$name', '$basic', $allo, $pf, $bonus, $tax, $sal, $sal-$tax-$allo-$pf)";
+            echo $query . " test" ;
+            $run=mysqli_query($conn,$query);
+            if($run) {
+
+                echo "form submitted succesfuuly";
+            }
+            else
+            {
+                echo "form not submitted";
+            }
+                    
+            
+        }
+        else{
+            echo"all fields  are required";
+        }
+
+
+    }
+    
+   
+    ?>
+    

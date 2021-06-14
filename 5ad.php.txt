@@ -1,0 +1,25 @@
+<?php
+    $host='localhost';
+    $user='root';
+    $pass='';
+    $db='demo';
+
+    
+    $conn=mysqli_connect($host,$user,$pass,$db);
+    
+    $sql = "SELECT  ename, eid, email FROM employee";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              // output data of each row
+              while($row = $result->fetch_assoc()) {
+                echo "id: " . $row["eid"]. " - Name: " . $row["ename"]. " " . $row["email"]. "<br>";
+              }
+            } else {
+              echo "0 results";
+            }
+    ?>
+
+
+
+
